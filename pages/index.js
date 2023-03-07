@@ -77,7 +77,7 @@ export function getServerSideProps(context) {
     const fs=require('fs');
     const { join } = require('path');
     function getFiles (dir, files_){
-        var dir=process.cwd()+"/___vc"
+        var dir=join(process.cwd(),"public","music")
         files_ = files_ || [];
         var files = fs.readdirSync(dir);
         for (var i in files){
