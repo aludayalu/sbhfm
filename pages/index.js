@@ -1,5 +1,7 @@
 import Head from "next/head";
 import { Text, Link, Navbar, Spacer, Divider, Button,Row,Card,Grid} from "@nextui-org/react";
+import path from 'path'
+import getConfig from 'next/config'
 
 export default function Home(props) {
     const songs=props.songs
@@ -72,8 +74,9 @@ export default function Home(props) {
 
 export function getServerSideProps(context) {
     const fs=require('fs');
+    const { join } = require('path');
     function getFiles (dir, files_){
-        var dir=process.cwd()+dir
+        var dir=join(process.cwd(), dir)
         files_ = files_ || [];
         var files = fs.readdirSync(dir);
         for (var i in files){
