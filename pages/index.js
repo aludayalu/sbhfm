@@ -6,7 +6,6 @@ import getConfig from 'next/config'
 
 export default function Home(props) {
     const songs=props.songs
-    return (JSON.stringify(songs))
     return (
         <>
             <Head>
