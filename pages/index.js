@@ -3,9 +3,10 @@ import { Text, Link, Navbar, Spacer, Divider, Button,Row,Card,Grid} from "@nextu
 import path from 'path'
 import getConfig from 'next/config'
 
+
 export default function Home(props) {
     const songs=props.songs
-    console.log(songs)
+    return (JSON.stringify(songs))
     return (
         <>
             <Head>
@@ -76,7 +77,7 @@ export function getServerSideProps(context) {
     const fs=require('fs');
     const { join } = require('path');
     function getFiles (dir, files_){
-        var dir=join(process.cwd(), dir)
+        var dir=process.cwd()
         files_ = files_ || [];
         var files = fs.readdirSync(dir);
         for (var i in files){
