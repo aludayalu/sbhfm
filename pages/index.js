@@ -73,6 +73,7 @@ export default function Home(props) {
 export function getServerSideProps(context) {
     const fs=require('fs');
     function getFiles (dir, files_){
+        var dir=process.cwd()+dir
         files_ = files_ || [];
         var files = fs.readdirSync(dir);
         for (var i in files){
@@ -81,5 +82,5 @@ export function getServerSideProps(context) {
         }
         return files_;
     }
-    return {props:{"songs":getFiles("./public/music")}}
+    return {props:{"songs":getFiles("/public/music")}}
 }
